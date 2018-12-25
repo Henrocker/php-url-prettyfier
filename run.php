@@ -9,9 +9,10 @@
 		die("You've specified a host that exceeds the allowed length of 1000 characters.</br><a href=\"index.html\">Back</a>");
      }
      if (substr($url, 0, 7) === 'http://' || substr($url, 0, 8) === 'https://') {
-		echo "URL: ";
+		$domainpart = strtok($url, '?');
+	     	echo "URL: ";
 		echo "<br>";
-		echo $url;
+		echo $domainpart;
 		echo "<br><br>";
 		$query_str = parse_url($url, PHP_URL_QUERY);
 		parse_str($query_str, $query_params);
